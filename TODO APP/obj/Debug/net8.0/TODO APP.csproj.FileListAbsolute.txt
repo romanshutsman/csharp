@@ -1,0 +1,15 @@
+/Users/shutsr/Documents/c#/csharp/TODO APP/bin/Debug/net8.0/TODO APP
+/Users/shutsr/Documents/c#/csharp/TODO APP/bin/Debug/net8.0/TODO APP.deps.json
+/Users/shutsr/Documents/c#/csharp/TODO APP/bin/Debug/net8.0/TODO APP.runtimeconfig.json
+/Users/shutsr/Documents/c#/csharp/TODO APP/bin/Debug/net8.0/TODO APP.dll
+/Users/shutsr/Documents/c#/csharp/TODO APP/bin/Debug/net8.0/TODO APP.pdb
+/Users/shutsr/Documents/c#/csharp/TODO APP/obj/Debug/net8.0/TODO APP.GeneratedMSBuildEditorConfig.editorconfig
+/Users/shutsr/Documents/c#/csharp/TODO APP/obj/Debug/net8.0/TODO APP.AssemblyInfoInputs.cache
+/Users/shutsr/Documents/c#/csharp/TODO APP/obj/Debug/net8.0/TODO APP.AssemblyInfo.cs
+/Users/shutsr/Documents/c#/csharp/TODO APP/obj/Debug/net8.0/TODO APP.csproj.CoreCompileInputs.cache
+/Users/shutsr/Documents/c#/csharp/TODO APP/obj/Debug/net8.0/TODO APP.sourcelink.json
+/Users/shutsr/Documents/c#/csharp/TODO APP/obj/Debug/net8.0/TODO APP.dll
+/Users/shutsr/Documents/c#/csharp/TODO APP/obj/Debug/net8.0/refint/TODO APP.dll
+/Users/shutsr/Documents/c#/csharp/TODO APP/obj/Debug/net8.0/TODO APP.pdb
+/Users/shutsr/Documents/c#/csharp/TODO APP/obj/Debug/net8.0/TODO APP.genruntimeconfig.cache
+/Users/shutsr/Documents/c#/csharp/TODO APP/obj/Debug/net8.0/ref/TODO APP.dll
