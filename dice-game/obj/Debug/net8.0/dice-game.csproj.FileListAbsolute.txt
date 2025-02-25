@@ -1,0 +1,15 @@
+/Users/shutsr/Documents/c#/csharp/dice-game/bin/Debug/net8.0/dice-game
+/Users/shutsr/Documents/c#/csharp/dice-game/bin/Debug/net8.0/dice-game.deps.json
+/Users/shutsr/Documents/c#/csharp/dice-game/bin/Debug/net8.0/dice-game.runtimeconfig.json
+/Users/shutsr/Documents/c#/csharp/dice-game/bin/Debug/net8.0/dice-game.dll
+/Users/shutsr/Documents/c#/csharp/dice-game/bin/Debug/net8.0/dice-game.pdb
+/Users/shutsr/Documents/c#/csharp/dice-game/obj/Debug/net8.0/dice-game.GeneratedMSBuildEditorConfig.editorconfig
+/Users/shutsr/Documents/c#/csharp/dice-game/obj/Debug/net8.0/dice-game.AssemblyInfoInputs.cache
+/Users/shutsr/Documents/c#/csharp/dice-game/obj/Debug/net8.0/dice-game.AssemblyInfo.cs
+/Users/shutsr/Documents/c#/csharp/dice-game/obj/Debug/net8.0/dice-game.csproj.CoreCompileInputs.cache
+/Users/shutsr/Documents/c#/csharp/dice-game/obj/Debug/net8.0/dice-game.sourcelink.json
+/Users/shutsr/Documents/c#/csharp/dice-game/obj/Debug/net8.0/dice-game.dll
+/Users/shutsr/Documents/c#/csharp/dice-game/obj/Debug/net8.0/refint/dice-game.dll
+/Users/shutsr/Documents/c#/csharp/dice-game/obj/Debug/net8.0/dice-game.pdb
+/Users/shutsr/Documents/c#/csharp/dice-game/obj/Debug/net8.0/dice-game.genruntimeconfig.cache
+/Users/shutsr/Documents/c#/csharp/dice-game/obj/Debug/net8.0/ref/dice-game.dll
