@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TODO APP", "TODO APP\TODO A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dice-game", "dice-game\dice-game.csproj", "{05B397FA-AE05-4608-BAD4-E7294A569124}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dbConnection", "dbConnection\dbConnection.csproj", "{0A178B9D-47DF-460A-AB40-033B9B665840}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{05B397FA-AE05-4608-BAD4-E7294A569124}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05B397FA-AE05-4608-BAD4-E7294A569124}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05B397FA-AE05-4608-BAD4-E7294A569124}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A178B9D-47DF-460A-AB40-033B9B665840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A178B9D-47DF-460A-AB40-033B9B665840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A178B9D-47DF-460A-AB40-033B9B665840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A178B9D-47DF-460A-AB40-033B9B665840}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
