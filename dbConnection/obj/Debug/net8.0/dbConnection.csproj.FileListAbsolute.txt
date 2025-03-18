@@ -77,3 +77,10 @@
 /Users/shutsr/Documents/c#/csharp/dbConnection/bin/Debug/net8.0/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll
 /Users/shutsr/Documents/c#/csharp/dbConnection/obj/Debug/net8.0/dbConnection.csproj.AssemblyReference.cache
 /Users/shutsr/Documents/c#/csharp/dbConnection/obj/Debug/net8.0/dbConnec.A129EEEB.Up2Date
+/Users/shutsr/Documents/c#/csharp/dbConnection/bin/Debug/net8.0/Microsoft.Extensions.Configuration.dll
+/Users/shutsr/Documents/c#/csharp/dbConnection/bin/Debug/net8.0/Microsoft.Extensions.Configuration.FileExtensions.dll
+/Users/shutsr/Documents/c#/csharp/dbConnection/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Json.dll
+/Users/shutsr/Documents/c#/csharp/dbConnection/bin/Debug/net8.0/Microsoft.Extensions.FileProviders.Abstractions.dll
+/Users/shutsr/Documents/c#/csharp/dbConnection/bin/Debug/net8.0/Microsoft.Extensions.FileProviders.Physical.dll
+/Users/shutsr/Documents/c#/csharp/dbConnection/bin/Debug/net8.0/Microsoft.Extensions.FileSystemGlobbing.dll
+/Users/shutsr/Documents/c#/csharp/dbConnection/bin/Debug/net8.0/appsettings.json

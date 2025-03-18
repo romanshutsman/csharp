@@ -8,3 +8,5 @@ dotnet watch run
 
 docker stop sql_connect
 docker start sql_connect
+
+dotnet restore -- if new packaded were added

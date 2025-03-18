@@ -1,8 +1,12 @@
 ﻿using dbConnection.Data;
 using dbConnection.Models;
+using Microsoft.Extensions.Configuration;
 
-DataContextDapper dapper = new DataContextDapper();
-DataContextEF entityFramwork = new DataContextEF();
+IConfiguration config = new ConfigurationBuilder()
+.AddJsonFile("appsettings.json")
+.Build();
+DataContextDapper dapper = new DataContextDapper(config);
+DataContextEF entityFramwork = new DataContextEF(config);
 
 string sqlQuerySelectDate = "SELECT GETDATE()";
 DateTime rightNow = dapper.LoadDataSingle<DateTime>(sqlQuerySelectDate);
