@@ -1,4 +1,5 @@
-﻿using dbConnection.Data;
+﻿using System.Globalization;
+using dbConnection.Data;
 using dbConnection.Models;
 using Microsoft.Extensions.Configuration;
 
@@ -20,7 +21,7 @@ Computer myComputer = new Computer()
     HasLTE = false,
     ReleaseDate = DateTime.Now,
     Price = 3342.3242m,
-    Videocard = "RTX 2061"
+    VideoCard = "RTX 2061"
 };
 
 entityFramwork.Add(myComputer);
@@ -32,13 +33,13 @@ string sqlInsertComputer = @"INSERT INTO TutorialAppSchema.Computer(
     HasLTE,
     ReleaseDate,
     Price,
-    Videocard
+    VideoCard
 ) VALUES ('" + myComputer.Motherboard
     + "','" + myComputer.HasWifi
     + "','" + myComputer.HasLTE
-    + "','" + myComputer.ReleaseDate.ToString("yyyy-MM-dd")
+    + "','" + myComputer.ReleaseDate?.ToString("yyyy-MM-dd")
     + "','" + myComputer.Price
-    + "','" + myComputer.Videocard
+    + "','" + myComputer.VideoCard
 + "')";
 Console.WriteLine(sqlInsertComputer);
 
@@ -53,7 +54,7 @@ SELECT
     Computer.HasLTE,
     Computer.ReleaseDate,
     Computer.Price,
-    Computer.Videocard
+    Computer.VideoCard
 FROM TutorialAppSchema.Computer
 ";
 
@@ -70,6 +71,42 @@ foreach (Computer singleComputer in computers)
     + "','" + singleComputer.HasLTE
     + "','" + singleComputer.ReleaseDate
     + "','" + singleComputer.Price
-    + "','" + singleComputer.Videocard
-    + "'" );
+    + "','" + singleComputer.VideoCard
+    + "'");
+}
+
+var test = new FilerWriter();
+test.WriteFile();
+IEnumerable<Computer>? readComputers = test.ReadComputers();
+if (readComputers != null)
+{
+    foreach (Computer computer in readComputers)
+    {
+        // string sql = @"INSERT INTO TutorialAppSchema.Computer (
+        //     Motherboard,
+        //     HasWifi,
+        //     HasLTE,
+        //     ReleaseDate,
+        //     Price,
+        //     VideoCard
+        // ) VALUES ('" + EscapeSingleQuote(computer.Motherboard)
+        //         + "','" + computer.HasWifi
+        //         + "','" + computer.HasLTE
+        //         + "','" + computer.ReleaseDate?.ToString("yyyy-MM-dd")
+        //         + "','" + computer.Price.ToString("0.00", CultureInfo.InvariantCulture)
+        //         + "','" + EscapeSingleQuote(computer.VideoCard)
+        // + "')";
+
+        // dapper.ExecuteSql(sql);
+
+        // entityFramwork.Add(computer);
+    }
+    // entityFramwork.SaveChanges();
+}
+
+string EscapeSingleQuote(string input)
+{
+    string output = input.Replace("'", "''");
+
+    return output;
 }

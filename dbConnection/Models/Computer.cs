@@ -7,15 +7,15 @@ namespace dbConnection.Models
         public int? CPUCores { get; set; } = 0;
         public bool HasWifi { get; set; }
         public bool HasLTE { get; set; }
-        public DateTime ReleaseDate { get; set; }
+        public DateTime? ReleaseDate { get; set; }
         public decimal Price { get; set; }
-        public string? Videocard { get; set; }
+        public string? VideoCard { get; set; }
 
         public Computer()
         {
-            if (this.Videocard == null)
+            if (this.VideoCard == null)
             {
-                this.Videocard = "";
+                this.VideoCard = "";
             }
         }
     }
