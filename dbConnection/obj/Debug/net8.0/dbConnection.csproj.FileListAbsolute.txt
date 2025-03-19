@@ -85,3 +85,4 @@
 /Users/shutsr/Documents/c#/csharp/dbConnection/bin/Debug/net8.0/Microsoft.Extensions.FileSystemGlobbing.dll
 /Users/shutsr/Documents/c#/csharp/dbConnection/bin/Debug/net8.0/appsettings.json
 /Users/shutsr/Documents/c#/csharp/dbConnection/bin/Debug/net8.0/Newtonsoft.Json.dll
+/Users/shutsr/Documents/c#/csharp/dbConnection/bin/Debug/net8.0/AutoMapper.dll
