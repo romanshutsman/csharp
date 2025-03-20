@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dice-game", "dice-game\dice
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dbConnection", "dbConnection\dbConnection.csproj", "{0A178B9D-47DF-460A-AB40-033B9B665840}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api", "api\api.csproj", "{36571533-4EDD-4876-A1DF-372C0DACBE61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{0A178B9D-47DF-460A-AB40-033B9B665840}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A178B9D-47DF-460A-AB40-033B9B665840}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A178B9D-47DF-460A-AB40-033B9B665840}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36571533-4EDD-4876-A1DF-372C0DACBE61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36571533-4EDD-4876-A1DF-372C0DACBE61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36571533-4EDD-4876-A1DF-372C0DACBE61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36571533-4EDD-4876-A1DF-372C0DACBE61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
