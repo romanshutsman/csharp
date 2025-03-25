@@ -39,7 +39,7 @@ namespace api
         public void WriteUsers() {
             string usersJson = File.ReadAllText("Users.json");
         
-            IEnumerable<Users>? users = JsonConvert.DeserializeObject<IEnumerable<Users>>(usersJson);
+            IEnumerable<User>? users = JsonConvert.DeserializeObject<IEnumerable<User>>(usersJson);
             if (users != null) {
                 foreach (var item in users)
                 {                    
