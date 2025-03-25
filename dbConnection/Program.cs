@@ -73,40 +73,45 @@ foreach (Computer singleComputer in computers)
     + "','" + singleComputer.Price
     + "','" + singleComputer.VideoCard
     + "'");
+
 }
 
 var test = new FilerWriter();
 test.WriteFile();
+test.RunAutoMapper();
 IEnumerable<Computer>? readComputers = test.ReadComputers();
 if (readComputers != null)
 {
+    Console.WriteLine(readComputers);
     foreach (Computer computer in readComputers)
-    {
-        // string sql = @"INSERT INTO TutorialAppSchema.Computer (
-        //     Motherboard,
-        //     HasWifi,
-        //     HasLTE,
-        //     ReleaseDate,
-        //     Price,
-        //     VideoCard
-        // ) VALUES ('" + EscapeSingleQuote(computer.Motherboard)
-        //         + "','" + computer.HasWifi
-        //         + "','" + computer.HasLTE
-        //         + "','" + computer.ReleaseDate?.ToString("yyyy-MM-dd")
-        //         + "','" + computer.Price.ToString("0.00", CultureInfo.InvariantCulture)
-        //         + "','" + EscapeSingleQuote(computer.VideoCard)
-        // + "')";
+    { 
+        string sql = @"INSERT INTO TutorialAppSchema.Computer (
+            Motherboard,
+            HasWifi,
+            HasLTE,
+            ReleaseDate,
+            Price,
+            VideoCard
+        ) VALUES ('" + EscapeSingleQuote(computer.Motherboard)
+                + "','" + computer.HasWifi
+                + "','" + computer.HasLTE
+                + "','" + computer.ReleaseDate?.ToString("yyyy-MM-dd")
+                + "','" + computer.Price.ToString("0.00", CultureInfo.InvariantCulture)
+                + "','" + EscapeSingleQuote(computer?.VideoCard)
+        + "')";
+        Console.WriteLine(1 + sql);
 
         // dapper.ExecuteSql(sql);
 
         // entityFramwork.Add(computer);
     }
-    // entityFramwork.SaveChanges();
+    // entityFramwork.SaveChanges(); 
 }
 
-string EscapeSingleQuote(string input)
+string EscapeSingleQuote(string? input)
 {
+    if (input == null) return ""; 
     string output = input.Replace("'", "''");
 
-    return output;
+    return output; 
 }

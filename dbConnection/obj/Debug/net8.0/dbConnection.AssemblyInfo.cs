@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("dbConnection")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+214db57522acc2fcc0e0d4f57fb9a55c15cc9a1c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d61dc7705f0017ad1375cd566c76e11f6745fd81")]
 [assembly: System.Reflection.AssemblyProductAttribute("dbConnection")]
 [assembly: System.Reflection.AssemblyTitleAttribute("dbConnection")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

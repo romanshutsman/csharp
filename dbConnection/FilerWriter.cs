@@ -36,7 +36,7 @@ public class FilerWriter {
             IEnumerable<Computer>? computersNewtonSoft = JsonConvert.DeserializeObject<IEnumerable<Computer>>(computersJson);
             if (computersNewtonSoft != null) {
                 foreach (Computer computer in computersNewtonSoft) {
-                    Console.WriteLine(computer.Motherboard);
+                    Console.WriteLine(computer.VideoCard);
                 }
             }
 
@@ -53,7 +53,7 @@ public class FilerWriter {
             // File.WriteAllText("computersCopyNewtonsoft.json", computersCopyNewtonsoft);
             this.RunAutoMapper();
             this.PropertyMapper();
-            return computersSystem;
+            return computersNewtonSoft;
     }
 
     public void RunAutoMapper() {

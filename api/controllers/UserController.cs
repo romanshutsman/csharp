@@ -6,7 +6,17 @@ namespace api.Controllers;
 [Route("[controller]")]
 public class UserController : ControllerBase {
 
-    public UserController() {}
+    DataContextDapper _dapper;
+
+    public UserController(IConfiguration config) {
+        _dapper = new DataContextDapper(config);
+        Console.WriteLine();
+    }
+
+    [HttpGet("TestConnection")]
+    public DateTime TestConnection() {
+        return _dapper.LoadDataSingle<DateTime>("SELECT GETDATE()");
+    }
    
     [HttpGet("test/{testValue}")]
     public string[] Test(string testValue) {
