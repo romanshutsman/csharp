@@ -34,7 +34,6 @@ public class UserEFController : ControllerBase
     }
 
     [HttpGet("GetSingleUser/{userId}")]
-    // public IEnumerable<User> GetUsers()
     public User GetSingleUser(int userId)
     {
         User? user = _entityFramework.Users
@@ -110,5 +109,85 @@ public class UserEFController : ControllerBase
         throw new Exception("Failed to Get User");
     }
 
+
+    [HttpGet("GetUsersJobInfo")]
+    public IEnumerable<UserJobInfo> GetUsersJobInfo() {
+        return _entityFramework.UserJobInfo.ToList<UserJobInfo>();
+    }
+
+    [HttpGet("GetUsersSalary")]
+    public IEnumerable<UserSalary> GetUsersSalary() {
+        return _entityFramework.UserSalary.ToList<UserSalary>();
+    }
+
+    [HttpGet("GetUserJobInfo/{userId}")]
+    public UserJobInfo GetUserJobInfo(int userId)
+    {
+        UserJobInfo? user = _entityFramework.UserJobInfo
+            .Where(u => u.UserId == userId)
+            .FirstOrDefault<UserJobInfo>();
+
+        if (user != null) return user;
+        
+        throw new Exception("Failed to GetUserJobInfo");
+    }
+
     
+    [HttpGet("GetUserSalary/{userId}")]
+    public UserSalary GetUserSalary(int userId)
+    {
+        UserSalary? user = _entityFramework.UserSalary
+            .Where(u => u.UserId == userId)
+            .FirstOrDefault<UserSalary>();
+
+        if (user != null) return user;
+        
+        throw new Exception("Failed to GetUserSalary");
+    }
+
+    [HttpPut("EditUserSalary")]
+    public IActionResult EditUserSalary(UserSalary user)
+    {
+        UserSalary? userDb = _entityFramework.UserSalary
+            .Where(u => u.UserId == user.UserId)
+            .FirstOrDefault<UserSalary>();
+            
+        if (userDb != null)
+        {
+            userDb.Salary = user.Salary;
+            if (_entityFramework.SaveChanges() > 0)
+            {
+                return Ok();
+            } 
+
+            throw new Exception("Failed to Update User Salary");
+        }
+        
+        throw new Exception("Failed to Get User Salary");
+    }
+
+        [HttpPut("EditUserJobInfo")]
+    public IActionResult EditUserJobInfo(UserJobInfo user)
+    {
+        UserJobInfo? userDb = _entityFramework.UserJobInfo
+            .Where(u => u.UserId == user.UserId)
+            .FirstOrDefault<UserJobInfo>();
+            
+        if (userDb != null)
+        {
+            userDb.JobTitle = user.JobTitle;
+            userDb.Department = user.Department;
+            if (_entityFramework.SaveChanges() > 0)
+            {
+                return Ok();
+            } 
+
+            throw new Exception("Failed to Update UserJobInfo");
+        }
+        
+        throw new Exception("Failed to Get UserJobInfo");
+    }
+
+
+
 }

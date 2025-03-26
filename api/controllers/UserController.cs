@@ -114,4 +114,78 @@ public class UserController : ControllerBase {
 
         throw new Exception("Failed to Delete User");
     }
+
+    [HttpGet("GetUsersJobInfo")]
+    public IEnumerable<UserJobInfo> GetUsersJobInfo() {
+        string sql = @"SELECT * FROM  TutorialAppSchema.UserJobInfo;";
+        return _dapper.LoadData<UserJobInfo>(sql);
+    } 
+
+    [HttpGet("GetUsersSalary")]
+    public IEnumerable<UserSalary> GetUsersSalary() {
+        string sql = @"SELECT * FROM  TutorialAppSchema.UserSalary;";
+        return _dapper.LoadData<UserSalary>(sql); 
+    }
+
+    [HttpGet("GetUserJobInfo/{userId}")]
+    public UserJobInfo GetUserJobInfo(int userId)
+    {
+        string sql = @"SELECT * FROM  TutorialAppSchema.UserJobInfo WHERE UserId = " + userId.ToString();
+        return _dapper.LoadDataSingle<UserJobInfo>(sql);
+    }
+
+    
+    [HttpGet("GetUserSalary/{userId}")]
+    public UserSalary GetUserSalary(int userId)
+    {
+        string sql = @"SELECT * FROM  TutorialAppSchema.UserSalary WHERE UserId = " + userId.ToString();
+        return _dapper.LoadDataSingle<UserSalary>(sql);
+    }
+    [HttpPut("EditUserSalary")]
+    public IActionResult EditUserSalary(UserSalary user)
+    {
+
+        string query = @"
+            UPDATE TutorialAppSchema.UserSalary 
+            SET Salary = @Salary
+            WHERE UserId = @UserId";
+
+
+        bool success = _dapper.ExecuteSqlWithParams(query, new {
+            Salary = user.Salary,
+            UserId = user.UserId
+        });
+            
+        if (success == true)
+        {
+            return Ok();
+        }
+        
+        throw new Exception("Failed to Update User Salary");
+    }
+
+        [HttpPut("EditUserJobInfo")]
+    public IActionResult EditUserJobInfo(UserJobInfo user)
+    {
+        string query = @"
+            UPDATE TutorialAppSchema.UserJobInfo 
+            SET Department = @Department, 
+                JobTitle = @JobTitle
+            WHERE UserId = @UserId";
+
+        bool success = _dapper.ExecuteSqlWithParams(query, new {
+            Department = user.Department,
+            JobTitle = user.JobTitle,
+            UserId = user.UserId
+        });
+            
+        if (success == true)
+        {
+            return Ok();
+        }
+        
+        throw new Exception("Failed to Update User Job");
+    }
+
+                
 }
