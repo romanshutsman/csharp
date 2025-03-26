@@ -1,3 +1,4 @@
+using api.DTO;
 using api.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -44,5 +45,73 @@ public class UserController : ControllerBase {
    
         User user =  _dapper.LoadDataSingle<User>(sql);
         return user;
+    }
+
+[HttpPut("EditUser")]
+    public IActionResult EditUser(User user)
+    {
+        string sql = @"
+        UPDATE TutorialAppSchema.Users
+            SET [FirstName] = '" + user.FirstName + 
+                "', [LastName] = '" + user.LastName +
+                "', [Email] = '" + user.Email + 
+                "', [Gender] = '" + user.Gender + 
+                "', [Active] = '" + user.Active + 
+            "' WHERE UserId = " + user.UserId;
+        
+        Console.WriteLine(sql);
+
+        if (_dapper.ExecuteSql(sql))
+        {
+            return Ok();
+        } 
+
+        throw new Exception("Failed to Update User");
+    }
+
+
+    [HttpPost("AddUser")]
+    public IActionResult AddUser(UserToAddDto user)
+    {
+        string sql = @"
+            INSERT INTO TutorialAppSchema.Users(
+                [FirstName],
+                [LastName],
+                [Email],
+                [Gender],
+                [Active]
+            ) VALUES (" +
+                "'" + user.FirstName + 
+                "', '" + user.LastName +
+                "', '" + user.Email + 
+                "', '" + user.Gender + 
+                "', '" + user.Active + 
+            "')";
+        
+        Console.WriteLine(sql);
+
+        if (_dapper.ExecuteSql(sql))
+        {
+            return Ok();
+        } 
+
+        throw new Exception("Failed to Add User");
+    }
+
+        [HttpDelete("DeleteUser/{userId}")]
+    public IActionResult DeleteUser(int userId)
+    {
+        string sql = @"
+            DELETE FROM TutorialAppSchema.Users 
+                WHERE UserId = " + userId.ToString();
+        
+        Console.WriteLine(sql);
+
+        if (_dapper.ExecuteSql(sql))
+        {
+            return Ok();
+        } 
+
+        throw new Exception("Failed to Delete User");
     }
 }
