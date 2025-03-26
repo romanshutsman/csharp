@@ -12,10 +12,13 @@ public class UserEFController : ControllerBase
 {
     DataContextEF _entityFramework;    
     IMapper _mapper;
+    IUserRepository _userRepository;
 
-    public UserEFController(IConfiguration config)
+    public UserEFController(IConfiguration config, IUserRepository userRepository)
     {
         _entityFramework = new DataContextEF(config);
+
+        _userRepository = userRepository;
 
         _mapper = new Mapper(new MapperConfiguration(cfg =>{
             cfg.CreateMap<UserToAddDto, User>();
@@ -98,7 +101,7 @@ public class UserEFController : ControllerBase
         if (userDb != null)
         {
             _entityFramework.Users.Remove(userDb);
-            if (_entityFramework.SaveChanges() > 0)
+            if (_userRepository.SaveChanges())
             {
                 return Ok();
             } 
