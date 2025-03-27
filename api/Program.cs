@@ -1,4 +1,7 @@
+using System.Text;
 using api.Data;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +32,28 @@ builder.Services.AddCors((options) =>
  
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
+string? tokenKeyString = builder.Configuration.GetSection("AppSettings:TokenKey").Value;
+
+SymmetricSecurityKey tokenKey = new SymmetricSecurityKey(
+        Encoding.UTF8.GetBytes(
+            tokenKeyString != null ? tokenKeyString : ""
+        )
+    );
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options => {
+        options.TokenValidationParameters = new TokenValidationParameters() 
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+                    tokenKeyString != null ? tokenKeyString : ""
+                )),
+                ValidateIssuer = false,
+                ValidateAudience = false
+            };
+    });
+
+
 var app = builder.Build();
  
 // Configure the HTTP request pipeline.
@@ -36,7 +61,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseCors("DevCors");
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(); 
 }
 else
 {
@@ -46,7 +71,12 @@ else
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication(); // should go first
+
+app.UseAuthorization();
+
 app.MapControllers();
+
 
 
 app.Run();
