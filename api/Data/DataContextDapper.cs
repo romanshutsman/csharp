@@ -35,25 +35,27 @@ namespace api
             return databaseConn.Execute(sql, parameters) > 0;
         }
 
-        public bool ExecuteSqlWithParameters(string sql, List<SqlParameter> parameters)
+        public bool ExecuteSqlWithParameters(string sql, DynamicParameters parameters)
         {
-            SqlCommand commandWithParams = new SqlCommand(sql);
+            IDbConnection databaseConn = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+            return databaseConn.Execute(sql, parameters) > 0;
+            // SqlCommand commandWithParams = new SqlCommand(sql);
 
-            foreach(SqlParameter parameter in parameters)
-            {
-                commandWithParams.Parameters.Add(parameter);
-            }
+            // foreach(SqlParameter parameter in parameters)
+            // {
+            //     commandWithParams.Parameters.Add(parameter);
+            // }
 
-            SqlConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
-            dbConnection.Open();
+            // SqlConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+            // dbConnection.Open();
 
-            commandWithParams.Connection = dbConnection;
+            // commandWithParams.Connection = dbConnection;
 
-            int rowsAffected = commandWithParams.ExecuteNonQuery();
+            // int rowsAffected = commandWithParams.ExecuteNonQuery();
 
-            dbConnection.Close();
+            // dbConnection.Close();
 
-            return rowsAffected > 0;
+            // return rowsAffected > 0;
         }
 
 
@@ -124,6 +126,19 @@ namespace api
                     });
                 }
             }
+        }
+
+
+        public IEnumerable<T> LoadDataWithParameters<T>(string sql, DynamicParameters parameters)
+        {
+            IDbConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+            return dbConnection.Query<T>(sql, parameters);
+        }
+
+        public T LoadDataSingleWithParameters<T>(string sql, DynamicParameters parameters)
+        {
+            IDbConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+            return dbConnection.QuerySingle<T>(sql, parameters);
         }
     }
     

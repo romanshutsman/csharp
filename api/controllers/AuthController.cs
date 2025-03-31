@@ -2,6 +2,7 @@ using System.Data;
 using System.Security.Cryptography;
 using api.DTO;
 using api.Helpers;
+using Dapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -50,18 +51,22 @@ namespace api.Controllers
                         [PasswordSalt]) VALUES ('" + userForRegistration.Email +
                         "', @PasswordHash, @PasswordSalt)";
 
-                    List<SqlParameter> sqlParameters = new List<SqlParameter>();
+                    // List<SqlParameter> sqlDynamicParameterssqlParameters = new List<SqlParameter>();
 
-                    SqlParameter passwordSaltParameter = new SqlParameter("@PasswordSalt", SqlDbType.VarBinary);
-                    passwordSaltParameter.Value = passwordSalt;
+                    // SqlParameter passwordSaltParameter = new SqlParameter("@PasswordSalt", SqlDbType.VarBinary);
+                    // passwordSaltParameter.Value = passwordSalt;
 
-                    SqlParameter passwordHashParameter = new SqlParameter("@PasswordHash", SqlDbType.VarBinary);
-                    passwordHashParameter.Value = passwordHash;
+                    // SqlParameter passwordHashParameter = new SqlParameter("@PasswordHash", SqlDbType.VarBinary);
+                    // passwordHashParameter.Value = passwordHash;
 
-                    sqlParameters.Add(passwordSaltParameter);
-                    sqlParameters.Add(passwordHashParameter);
+                    // sqlParameters.Add(passwordSaltParameter);
+                    // sqlParameters.Add(passwordHashParameter);
 
-                    if (_dapper.ExecuteSqlWithParameters(sqlAddAuth, sqlParameters))
+                    DynamicParameters sqlDynamicParameters = new Dapper.DynamicParameters();
+                    sqlDynamicParameters.Add("@PasswordSalt", passwordSalt, DbType.Binary);
+                    sqlDynamicParameters.Add("@PasswordHash", passwordHash, DbType.Binary);
+
+                    if (_dapper.ExecuteSqlWithParameters(sqlAddAuth, sqlDynamicParameters))
                     {
                         
                         string sqlAddUser = @"

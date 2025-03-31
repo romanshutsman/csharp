@@ -105,7 +105,7 @@ namespace DotnetAPI.Controllers
                 [PostUpdated]) VALUES (" + this.User.FindFirst("userId")?.Value
                 + ",'" + postToAdd.PostTitle
                 + "','" + postToAdd.PostContent
-                + "', GETDATE(), GETDATE() )";
+                + "', GETDATE(), GETDATE() )"; 
             if (_dapper.ExecuteSql(sql))
             {
                 return Ok();
